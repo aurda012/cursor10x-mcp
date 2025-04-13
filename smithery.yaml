@@ -1,0 +1,24 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - tursoDatabaseUrl
+      - tursoAuthToken
+    properties:
+      tursoDatabaseUrl:
+        type: string
+        description: URL for the Turso Database connection
+      tursoAuthToken:
+        type: string
+        description: Authentication token for Turso access
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'node', args: ['index.js'], env: { TURSO_DATABASE_URL: config.tursoDatabaseUrl, TURSO_AUTH_TOKEN: config.tursoAuthToken } })
+  exampleConfig:
+    tursoDatabaseUrl: https://your-database-url
+    tursoAuthToken: your-auth-token
