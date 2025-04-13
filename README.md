@@ -678,6 +678,14 @@ mcp_cursor10x_getMemoryStats({})
 
 ## Installation
 
+### Installing via Smithery
+
+To install Cursor10x Memory System for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@aurda012/cursor10x-mcp):
+
+```bash
+npx -y @smithery/cli install @aurda012/cursor10x-mcp --client claude
+```
+
 ### Prerequisites
 
 - Node.js 18 or higher
